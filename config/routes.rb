@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'homes#top'
-  resources :books
+
+  get 'books/new'
+  # post 'books' => 'books#create'
+
+  # resources :books
 end
