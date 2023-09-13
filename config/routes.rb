@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
   root :to => 'homes#top'
-
-  get 'books/new'
-  
-  #TOP 
   get '/books' => 'books#index'
-  
+
+  post '/books' =>'books#create'
+
   # 投稿成功不要？
-  # get '/books/174350' => 
-  
+  # get '/books/174350' =>
+
   # edit
   get '/books/174427/edit' => 'books#edit'
-  
-  # sho
+  # show
   get '/books/174420' => 'books#show'
-  # post 'books' => 'books#create'
-
+  delete 'books/:id' => 'books#destroy', as: 'destroy_book'
   # resources :books
 end
