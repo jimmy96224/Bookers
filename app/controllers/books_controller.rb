@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     else
     @books = Book.all
     @book = Book.new
-    render :index
+    render :index, status: :unprocessable_entity
     end
   end
 
@@ -20,23 +20,26 @@ class BooksController < ApplicationController
   end
 
 
-
   def show
     @book = Book.find(params[:id])
 
   end
 
-
-
   def edit
-    @book = Book.find(params[:id])
+    @bookedit = Book.find(params[:id])
   end
 
   def update
     book = Book.find(params[:id])
-    book.update(book_params)
+    if book.update(book_params)
     flash[:notice] = "Book was successfully updated."
     redirect_to book_path(book.id)
+    else
+    @book = Book.new
+    @books = Book.all
+    render :edit, status: :unprocessable_entity
+    end
+
   end
 
   def destroy
