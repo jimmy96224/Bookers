@@ -11,8 +11,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     render :index
-
-  end
+    end
   end
 
   def index
