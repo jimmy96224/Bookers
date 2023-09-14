@@ -19,14 +19,13 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-
   def show
     @book = Book.find(params[:id])
 
   end
 
   def edit
-    @bookedit = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
@@ -37,7 +36,7 @@ class BooksController < ApplicationController
     else
     @book = Book.new
     @books = Book.all
-    render :edit, status: :unprocessable_entity
+    render :edit
     end
 
   end

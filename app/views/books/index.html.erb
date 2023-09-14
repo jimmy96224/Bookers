@@ -44,7 +44,7 @@
  <% end %>
 
 
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
+<%= form_with model: @book, url: books_path, method: :post do |f| %>
 
 
 <p class=title>Title</p>
@@ -61,4 +61,3 @@
 
 </div>
 
-</body>
